@@ -1,3 +1,26 @@
+ # Meals Application
+
+### create a  new project in replit
+-login/ register
+-in the dashboard click "create"
+-find react template
+-click run
+-change title in index.html
+
+ ### get assets
+ -copy styles from /src/App.css
+ -copy README.md
+
+ ### Global Styles Info
+
+ ### Setup Structure
+ -create /src/components
+-Favourites.jsx Meals.jsx Search.jsx
+-create component (arrow function)
+-setup basic return(component name)
+-or my personal favourite "shake and bake"
+-export default
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
