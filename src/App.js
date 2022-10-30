@@ -8,11 +8,10 @@ import Search from './components/search';
 function App() {
   return (
     <main>Meals App
-      <Favourites/>
+       {/*<Search /> */}
+      {/* <Favourites/>*/}
       <Meals/>
-      <Modal />
-      <Search />
-    
+      {/*<Modal /> */}
     </main>
   );
 }
