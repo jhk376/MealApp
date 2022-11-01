@@ -5,11 +5,11 @@ const Meals =() =>{
 
     const {meals} = useGlobalContext()
     
-    return <sections>
+    return <section>
         {meals.map((singleMeal)=>{
             console.log(singleMeal)
             return <h4>single meal</h4>
         })}
-    </sections>
+    </section>
 }
 export default Meals
