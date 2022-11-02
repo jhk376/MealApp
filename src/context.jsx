@@ -9,25 +9,27 @@ const randomMealUrl ='https://www.themealdb.com/api/json/v1/1/random.php'
 const AppProvider = ({children}) => {
     const [meals, setMeals] = useState([])
 
-    const fetchMeals = async (url) =>{
+    const fetchMeals = async(url) =>{
         try{
             const {data} = await axios(url)
             setMeals(data.meals)
-            
-        } catch (error){    
+        }catch (error){
             console.log(error.response)
-
         }
     }
-
     useEffect(() =>{    
-        //fetch().then
-        //.then async/await
-        //
+        
         fetchMeals(allMealsUrl)
+        
+        //fetchData()
     },[])
 
+<<<<<<< Updated upstream
     return <AppContext.Provider value = "hello">
+=======
+    return (<AppContext.Provider value = 
+    {{meals}}>
+>>>>>>> Stashed changes
         {children}
     </AppContext.Provider>
 }
@@ -35,4 +37,9 @@ const AppProvider = ({children}) => {
 export const useGlobalContext =() =>{
     return useContext(AppContext)
 }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 export {AppContext, AppProvider}

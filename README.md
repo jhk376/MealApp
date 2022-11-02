@@ -114,12 +114,20 @@ const Meals = () => {
 }
 
 export default Meals
+<<<<<<< Updated upstream
+=======
+
+### not error reach here
+
+>>>>>>> Stashed changes
 Custom Hook
 context.jsx
 
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
+
+Meals.jsx
 import {useGlobalContext} from '../context'
 const Meals = () => {
   const context = useGlobalContext()
@@ -169,13 +177,16 @@ const AppProvider = ({ children }) => {
     }
     fetchData()
   },[])
+
+### no error
+
 Meals DB
 utilize search engine "meals db", follow the link
 Meals DB
 get familiar with docs
 get two url's
-Search meal by name
-Lookup a single random meal
+  Search meal by name
+  Lookup a single random meal
 (hint the "https://" is missing)
 setup two variables in context.jsx
 (allMealsUrl, randomMealUrl) and assign the corresponding values
