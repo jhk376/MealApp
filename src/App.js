@@ -1,19 +1,19 @@
 
-import './App.css';
-import Favourites from './components/Favourites';
-import Meals from './components/Meals';
-import Modal from './components/Modal';
-import Search from './components/Search';
+import './App.css'
+import Favourites from './components/Favourites'
+import Meals from './components/Meals'
+import Modal from './components/Modal'
+import Search from './components/Search'
 
 function App() {
   return (
     <main>Meals App
-       {/*<Search /> */}
-      {/* <Favourites/>*/}
+      <Search /> 
+      <Favourites/>
       <Meals/>
-      {/*<Modal /> */}
+      <Modal />
     </main>
   );
 }
 
-export default App;
+export default App

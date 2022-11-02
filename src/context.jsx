@@ -7,7 +7,7 @@ const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=a'
 const randomMealUrl ='https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({children}) => {
-    const [meals, setMeals] = useState([])
+    {/*const [meals, setMeals] = useState([])
 
     const fetchMeals = async (url) =>{
         try{
@@ -26,13 +26,14 @@ const AppProvider = ({children}) => {
         //
         fetchMeals(allMealsUrl)
     },[])
-
-    return <AppContext.Provider value = "hello">
+*/}
+    return (<AppContext.Provider value = "hello">
         {children}
-    </AppContext.Provider>
+    </AppContext.Provider>)
 }
-
+{/* 
 export const useGlobalContext =() =>{
     return useContext(AppContext)
 }
+*/}
 export {AppContext, AppProvider}
