@@ -385,7 +385,7 @@ const Meals = () => {
     </section>
   }
 }
-## no error here
+### no error here
 No items
 in fetchMeals check if data.meals is truthy
 returns true
@@ -648,6 +648,8 @@ const Search = () => {
 
 
 export default Search
+
+### 1103 no error
 Fix Bugs
 /components/Search.jsx
 
@@ -712,6 +714,8 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
+
+### done ,but need read more fore network duplicate function
 Modal - Setup
 /components/Modal.jsx
 

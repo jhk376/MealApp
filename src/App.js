@@ -4,14 +4,17 @@ import Favourites from './components/Favourites';
 import Meals from './components/Meals';
 import Modal from './components/Modal';
 import Search from './components/Search';
+import {useGlobalContext} from './context'
 
 function App() {
+  const {showModal} =useGlobalContext()
+
   return (
     <main>Meals App
        <Search /> 
       {/* <Favourites/>*/}
       <Meals/>
-      {/*<Modal /> */}
+      {showModal && <Modal /> }
     </main>
   );
 }
