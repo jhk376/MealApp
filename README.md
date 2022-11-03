@@ -295,7 +295,7 @@ const Meals = () => {
   </section>
 
 }
-
+### 1102 no error
 export default Meals
 Meals Component - Display Card
 /components/Meals.jsx
@@ -385,6 +385,7 @@ const Meals = () => {
     </section>
   }
 }
+## no error here
 No items
 in fetchMeals check if data.meals is truthy
 returns true
