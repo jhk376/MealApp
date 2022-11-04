@@ -1002,6 +1002,7 @@ import Search from './components/Search'
 import Meals from './components/Meals'
 import Modal from './components/Modal'
 import Favorites from './components/Favorites'
+
 export default function App() {
   const { showModal, favorites } = useGlobalContext()
 
@@ -1043,7 +1044,7 @@ const Favorites = () => {
 
 
 export default Favorites
-Favorites CSS
+# Favorites CSS
 App.css
 
 /* Favorites */
@@ -1098,6 +1099,7 @@ const selectMeal = (idMeal, favoriteMeal) => {
     setSelectedMeal(meal);
     setShowModal(true)
   }
+  # done
 /components/Favorites.jsx
 
 import { useGlobalContext } from '../context'
@@ -1123,7 +1125,7 @@ const Favorites = () => {
   </section>
 }
 
-
+## favorites will not deselected while change to surprise
 export default Favorites
 Add Favorites to Local Storage
 contex.jsx
