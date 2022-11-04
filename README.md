@@ -731,6 +731,7 @@ const Modal = () => {
 }
 
 export default Modal
+
 context.jsx
 
 const AppProvider = ({ children }) => {
@@ -750,10 +751,9 @@ const AppProvider = ({ children }) => {
 }
 App.jsx
 
+## here
 import { useGlobalContext } from './context'
 import './App.css'
-
-
 
 import Search from './components/Search'
 import Meals from './components/Meals'
@@ -896,7 +896,8 @@ const Modal = () => {
 }
 
 export default Modal
-Modal CSS - Complete
+### Modal CSS - Complete
+
 App.css
 
 .modal-img{

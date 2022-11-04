@@ -6,17 +6,17 @@ import Modal from './components/Modal';
 import Search from './components/Search';
 import {useGlobalContext} from './context'
 
-function App() {
+export default function App() {
   const {showModal} =useGlobalContext()
 
   return (
-    <main>Meals App
-       <Search /> 
-      {/* <Favourites/>*/}
+    <main>
+      <Search /> 
+      <Favourites/>
       <Meals/>
       {showModal && <Modal /> }
     </main>
   );
 }
 
-export default App;
+

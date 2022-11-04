@@ -10,9 +10,10 @@ const AppProvider = ({children}) => {
     const [meals, setMeals] =  useState([])
     const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
-    const [showModal, setShowModal] = useState(true)
+    const [showModal, setShowModal] = useState(false)
     const [selectedMeal, setSelectedMeal] =useState(null)
-
+    const [favourites, setFavourites]= useState([])
+    
     const fetchMeals = async (url) =>{
         setLoading(true)
         try{
@@ -37,10 +38,27 @@ const AppProvider = ({children}) => {
     const selectMeal = (idMeal, favouriteMeal)=>{
         console.log('hello')
         let meal;
-        meal = meals.find((meal) =>meal.idMeal === idMeal)
-        setSelectedMeal(meal)
+        meal = meals.find((meal) =>meal.idMeal === idMeal);
+        setSelectedMeal(meal);
         setShowModal(true);
     }
+
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
+    const addToFavourites = (idMeal) => {
+        const meal = meals.find((meal) => meal.idMeal === idMeal);
+        const alreadyFavourite = favourites.find((meal) => meal.idMeal === idMeal)
+        if (alreadyFavourite) return
+        const updateFavourites = [...favourites, meal]
+        setFavourites(updateFavourites)
+    }
+
+    const removeFromFavourites =((idMeal) => {
+        const updateFavourites = favourites.filter((meal) => meal.idMeal!== idMeal);
+        setFavourites(updateFavourites)
+    })
     useEffect(()=>{
         fetchMeals(allMealsUrl)
     },[])
@@ -51,7 +69,10 @@ const AppProvider = ({children}) => {
         fetchMeals(`${allMealsUrl}${searchTerm}`)
     },[searchTerm])
 
-    return (<AppContext.Provider value ={{loading,meals, setSearchTerm, fetchRandomMeal,showModal, selectedMeal, selectMeal}}>
+    return (<AppContext.Provider value ={{loading, meals, 
+        setSearchTerm, fetchRandomMeal,showModal, 
+        selectedMeal, selectMeal, closeModal, favourites,
+        addToFavourites, removeFromFavourites}}>
         {children}
     </AppContext.Provider>)
 }
