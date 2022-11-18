@@ -1,38 +1,58 @@
-### Meals Application
-### Create A New Project in REPLIT
-!login/register
-!in the dashboard click "create"
-!find react template
-!click run
-!change title in index.html
+# **Meals Application**
 
-### Get Assets
-!copy styles from /src/App.css
-!copy README.md
+- Tools Using: Visual Studio Code
+- Language: React
+- Learning Time: Oct 2022
+ 
+ Functions:
 
-### Global Styles Info
-!Setup Structure
-!create /src/components
+ - This is a website which have the main function of let user search the meal and have a random result to surprise him.
+ 
+ - When user click on the picture of meal, the modal will pop out.
+ - The modal is including the **picture, title, ingredients steps and the original source**(website) of meal. 
+
+ - if user click on the like button below picture, a favorite bar will show below the search bar and the pictue of selected meal with a remove button will be included in favorite bar. User also can select multiple favorite meals.
+
+# Coding
+## Create A New Project in REPLIT
+- login/register
+- in the dashboard 
+- click "create"
+- find react template
+- click run
+- change title in index.html
+
+## Get Assets
+- copy styles from /src/App.css
+- copy README.md
+
+## Global Styles Info
+- Setup Structure
+- create /src/components
 
 ### Favorites.jsx, Meals.jsx, Modal.jsx, Search.jsx
-!create component (arrow function)
-!setup basic return (component name)
-!or my personal favorite "shake and bake"
-!export default
-!const Search = () => {
-  return <h1>Dude, where is my car<h1>
-}
+- create component (arrow function)
+- setup basic return (component name)
+- or my personal favorite "shake and bake"
+- export default
+```
+  const Search = () => {
+  return <h1>Dude, where is my car</h1>
+  }
 export default Search
-import all of them in App.js
-setup following structure
+```
+- import all of them in App.js
 
+- setup following structure
+```
 import './App.css'
 
-
-
-import Search from './components/Search'
+import Search from './components/Search
+'
 import Meals from './components/Meals'
+
 import Modal from './components/Modal'
+
 import Favorites from './components/Favorites'
 
 export default function App() {
@@ -46,7 +66,9 @@ export default function App() {
     </main>
   )
 }
+```
 comment out Search, Favorites, Modal
+```
 export default function App() {
 
   return (
@@ -58,19 +80,21 @@ export default function App() {
     </main>
   )
 }
-App Level State
-in App.js
-Context API
-3rd Party State Management Library
-Redux, Redux-Toolkit,.......
-Context API
-Provider
-Context API
+```
+## App Level State
 
-create context.js in the root
-context.jsx
+### in App.js 
+- Context API
+- 3rd Party State Management Library
+- Redux, Redux-Toolkit,.......
+- Context API
+- Provider
+- Context API
 
+- create context.js in the root
+### context.jsx
 
+```
 import React, {useContext} from 'react'
 
 const AppContext = React.createContext()
@@ -87,12 +111,14 @@ const AppProvider = ({ children }) => {
 }
 
 export { AppContext, AppProvider }
-index.jsx
-
+```
+### index.jsx
+```
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { AppProvider } from './context'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
     <AppProvider>
@@ -100,11 +126,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AppProvider>
 	</React.StrictMode>
 )
-//Completed
+```
 
-Consume Data
-/components/Meals.jsx
+- Consume Data
 
+### /components/Meals.jsx
+```
 import {useContext} from 'react'
 import {AppContext} from '../context'
 const Meals = () => {
@@ -114,6 +141,7 @@ const Meals = () => {
 }
 
 export default Meals
+```
 <<<<<<< Updated upstream
 =======
 
@@ -121,13 +149,15 @@ export default Meals
 
 >>>>>>> Stashed changes
 Custom Hook
-context.jsx
 
+### context.jsx
+```
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
-
-Meals.jsx
+```
+### Meals.jsx
+```
 import {useGlobalContext} from '../context'
 const Meals = () => {
   const context = useGlobalContext()
@@ -136,10 +166,12 @@ const Meals = () => {
 }
 
 export default Meals
-Data Fetching
-where and how
-context.jsx
+```
+## Data Fetching
+### where and how
 
+### context.jsx
+```
 import React, { useContext,useEffect } from 'react'
 
 const AppContext = React.createContext()
@@ -150,20 +182,20 @@ const AppProvider = ({ children }) => {
   useEffect(()=>{
     console.log('fetch data here')  
   },[])
-
-
   
   return <AppContext.Provider value={{name:'john', role:'student'}}>
     {children}
   </AppContext.Provider>
 }
-fetch data (fetch api or axios), from any url in useEffect cb
-log result
-Fetch API
-Fetch API
-random user
-context.jsx
+```
+*fetch data (fetch api or axios), from any url in useEffect cb*
+- log result
+- Fetch API
+- Fetch API
+- random user
 
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   useEffect(()=>{
     const fetchData = async() =>{
@@ -177,32 +209,31 @@ const AppProvider = ({ children }) => {
     }
     fetchData()
   },[])
-
-### no error
+```
 
 Meals DB
-utilize search engine "meals db", follow the link
-Meals DB
-get familiar with docs
-get two url's
-  Search meal by name
-  Lookup a single random meal
-(hint the "https://" is missing)
-setup two variables in context.jsx
-(allMealsUrl, randomMealUrl) and assign the corresponding values
-Get Meals By Name (with axios)
-Axios
+- utilize search engine "meals db", follow the link
 
-install axios
-import in context.jsx
-refactor fetchData
-change name
-switch to axios
-add url parameter
-switch to allMealsUrl
-log response
-context.jsx
+### Meals DB
+- get familiar with docs
+- get two url's
+- Search meal by name
+- Lookup a single random meal (hint the "https://" is missing)
+- setup two variables in context.jsx(allMealsUrl, randomMealUrl) - and assign the corresponding values
+- Get Meals By Name (with axios)
 
+## Axios
+- install axios
+- import in context.jsx
+- refactor fetchData
+- change name
+- switch to axios
+- add url parameter
+- switch to allMealsUrl
+- log response
+
+### context.jsx
+```
 import React, { useState, useContext, useEffect } from 'react'
 
 const AppContext = React.createContext()
@@ -210,9 +241,6 @@ const AppContext = React.createContext()
 import axios from 'axios'
 const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
 const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
-
-
-
 
 const AppProvider = ({ children }) => {
   
@@ -233,17 +261,18 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchMeals(allMealsUrl)
   }, [])
-State Variable (meals) and render
-import useState hook
-setup state variable (meals)
-set it equal to the meals from api (setMeals)
-pass it down to entire app (value prop)
-destructure meals in the Meals component
-iterate over meals
-log each meal
-render something (anything) on the screen
-import React, { useState, useContext, useEffect } from 'react'
-
+  ```
+### State Variable (meals) and render
+- import useState hook
+- setup state variable (meals)
+- set it equal to the meals from api (setMeals)
+- pass it down to entire app (value prop)
+- destructure meals in the Meals component
+- iterate over meals
+- log each meal
+- render something (anything) on the screen
+- import React, { useState, useContext, useEffect } from 'react'
+```
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([])
   
@@ -276,41 +305,39 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Meals.jsx
-
+```
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 
 const Meals = () => {
   const { meals } = useGlobalContext();
-
-  
-
   
   return <section >
     {meals.map((singleMeal) => {
       console.log(singleMeal)
-      return <h4>single meal</h4>
-        
+      return <h4>single meal</h4>       
     })}
   </section>
 
 }
-### 1102 no error
-export default Meals
-Meals Component - Display Card
-/components/Meals.jsx
 
+export default Meals
+```
+## Meals Component - Display Card
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 
 const Meals = () => {
   const { meals } = useGlobalContext();
-
   
   return <section className="section-center">
     {meals.map((singleMeal) => {
       const { idMeal, strMeal: title, strMealThumb: image } = singleMeal
-      return <article key={idMeal} className="single-meal" >
-        <img src={image} style={{width:'200px'}} className="img"} />
+      return 
+      <article key={idMeal} className="single-meal" >
+        <img src={image} style={{width:'200px'}} className="img"}/>
         <footer>
           <h5>{title}</h5>
           <button className='like-btn'>click me</button>
@@ -322,35 +349,33 @@ const Meals = () => {
 }
 
 export default Meals
-Meals CSS
-React Icons
-React Icons
-
-install
-import
-set icon in like button
-Infinite Loop
-Feel free to just watch
-initial render (we invoke useEffect)
-inside useEffect cb, we fetch data and change value for meals
-it triggers re-render
-we repeat steps 2 and 3
-Loading
-setup state variable "loading", with default value false
-set loading to true as a first thing in fetchMeals
-set loading to false as a last thing in fetchMeals
-add loading to value prop (pass it down)
-in Meals.jsx set condition for loading
-it needs to be before current return
-return
-Loading...
-if loading is true
-context.jsx
-
+```
+## Meals CSS
+### React Icons
+- install
+- import
+- set icon in like button
+- Infinite Loop
+- Feel free to just watch
+  - initial render (we invoke useEffect)
+  - inside useEffect cb, we fetch data and change value for meals
+  - it triggers re-render
+  - we repeat steps 2 and 3
+- Loading
+  - setup state variable "loading", with default value false
+  - set loading to true as a first thing in fetchMeals
+  - set loading to false as a last thing in fetchMeals
+  - add loading to value prop (pass it down)
+- in Meals.jsx set condition for loading
+  - it needs to be before current return
+-return
+ - Loading...
+- if loading is true, then continue
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(false)
-  
 
   const fetchMeals = async (url) => {
     setLoading(true)
@@ -372,8 +397,10 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Meals.jsx
+```
 
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 import { BsHandThumbsUp } from 'react-icons/bs'
 const Meals = () => {
@@ -385,17 +412,19 @@ const Meals = () => {
     </section>
   }
 }
-### no error here
-No items
-in fetchMeals check if data.meals is truthy
-returns true
-basically has some value
-only if data.meals has items set it as meals state value
-otherwise set meals variable as empty array
-in Meals.jsx check if meals length is less than 1
-if that's the case return
-No items
-place it between loading and current return (cards) context.jsx
+```
+- No items
+  - in fetchMeals check if data.meals is truthy
+  - returns true
+  - basically has some value
+- only if data.meals has items set it as meals state value
+  - otherwise set meals variable as empty array
+- in Meals.jsx check if meals length is less than 1
+  - if that's the case return
+  - No items
+
+- place it between loading and current return (cards) context.jsx
+```
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(false)
@@ -426,8 +455,9 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Meals.jsx
-
+```
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 import { BsHandThumbsUp } from 'react-icons/bs'
 const Meals = () => {
@@ -445,23 +475,21 @@ const Meals = () => {
     </section>
   }
 }
-Search Component - Structure
-in Search.jsx
-import useState and useGlobalContext
-setup return
-header.search-container
-form
-input.form-input type="text"
-button.btn type="submit"
-button.btn.btn-hipster type="button"
-in App.jsx display Search Component
-/components/Search.jsx
-
-
+```
+## Search Component - Structure
+- in Search.jsx
+  - import useState and useGlobalContext
+  - setup return
+  - header.search-container
+- form
+  - input.form-input type="text"
+  - button.btn type="submit"
+  - button.btn.btn-hipster type="button"
+- in App.jsx display Search Component
+### /components/Search.jsx
+```
 import { useState } from 'react'
 import {useGlobalContext} from '../context' 
-
-
 
 const Search = () => {
 
@@ -474,23 +502,20 @@ const Search = () => {
   </header>
 }
 
-### no error
 export default Search
-Search Component - CSS
-HandleChange and Handle Submit
-create "text" state variable
-create two functions handleChange and handleSubmit
-in the handleChange, grab e.target.value and set as text value
-add onChange to input and set it equal to handleChange
-in the handleSubmit set e.preventDefault()
-add onSubmit to form element and set it equal to handleSubmit
+```
+## Search Component - CSS
+- HandleChange and Handle Submit
+- create "text" state variable
+- create two functions handleChange and handleSubmit
+- in the handleChange, grab e.target.value and set as text value
+- add onChange to input and set it equal to handleChange
+- in the handleSubmit set e.preventDefault()
+- add onSubmit to form element and set it equal to handleSubmit
 Search.jsx
-
-
+```
 import { useState } from 'react'
 import {useGlobalContext} from '../context' 
-
-
 
 const Search = () => {
   
@@ -513,18 +538,18 @@ const Search = () => {
   </header>
 }
 
-
 export default Search
-Search Term
-in context.jsx create new state variable "searchTerm" with default value ''
-combine allMealsUrl with searchTerm and pass in the fetchMeals
-add searchTerm to useEffect's dependency array
-add setSearchTerm to value prop (pass it down)
-grab setSearchTerm in Search.jsx
-in the handleSubmit check setup a condition
-if the "text" has a value set it equal to "searchTerm"
-context.jsx
-
+```
+### Search Term
+- in context.jsx create new state variable "searchTerm" with default value ''
+- combine allMealsUrl with searchTerm and pass in the fetchMeals
+- add searchTerm to useEffect's dependency array
+- add setSearchTerm to value prop (pass it down)
+- grab setSearchTerm in Search.jsx
+- in the handleSubmit check setup a condition
+- if the "text" has a value set it equal to "searchTerm"
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(false)
@@ -563,12 +588,11 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Search.jsx
-
+```
+### /components/Search.jsx
+```
 import { useState } from 'react'
 import {useGlobalContext} from '../context' 
-
-
 
 const Search = () => {
   const { setSearchTerm } = useGlobalContext()
@@ -596,17 +620,15 @@ const Search = () => {
 
 
 export default Search
-Fetch Random Meal
-context.jsx
-
+```
+## Fetch Random Meal
+### context.jsx
+```
 const AppProvider = ({ children }) => {
-  
-
   const fetchRandomMeal = () => {
     fetchMeals(randomMealUrl)
   }
 
-  
   return (
     <AppContext.Provider
       value={{ loading, meals, setSearchTerm, fetchRandomMeal}}
@@ -615,12 +637,11 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Search.jsx
-
+```
+### /components/Search.jsx
+```
 import { useState } from 'react'
 import {useGlobalContext} from '../context' 
-
-
 
 const Search = () => {
   const { setSearchTerm, fetchRandomMeal } = useGlobalContext()
@@ -646,17 +667,14 @@ const Search = () => {
   </header>
 }
 
-
 export default Search
+```
 
-### 1103 no error
-Fix Bugs
-/components/Search.jsx
-
+## Fix Bugs
+### /components/Search.jsx
+```
 import { useState } from 'react'
 import { useGlobalContext } from '../context'
-
-
 
 const Search = () => {
   const { setSearchTerm, fetchRandomMeal } = useGlobalContext()
@@ -687,14 +705,12 @@ const Search = () => {
   </header>
 }
 
-
 export default Search
-context.jsx
-
+```
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   
-
-
   useEffect(() => {
     fetchMeals(allMealsUrl)
   }, [])
@@ -704,8 +720,6 @@ const AppProvider = ({ children }) => {
     fetchMeals(`${allMealsUrl}${searchTerm}`)
   }, [searchTerm])
 
-
-  
   return (
     <AppContext.Provider
       value={{ loading, meals, setSearchTerm, fetchRandomMeal}}
@@ -715,10 +729,10 @@ const AppProvider = ({ children }) => {
   )
 }
 
-### done ,but need read more fore network duplicate function
-Modal - Setup
-/components/Modal.jsx
-
+```
+## Modal - Setup
+### /components/Modal.jsx
+```
 import { useGlobalContext } from '../context'
 
 const Modal = () => {
@@ -731,15 +745,12 @@ const Modal = () => {
 }
 
 export default Modal
-
-context.jsx
-
+```
+### context.jsx
+```
 const AppProvider = ({ children }) => {
  
-
   const [showModal, setShowModal] = useState(false)
- 
-
   
   return (
     <AppContext.Provider
@@ -749,9 +760,11 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
+```
 App.jsx
 
 ## here
+```
 import { useGlobalContext } from './context'
 import './App.css'
 
@@ -759,6 +772,7 @@ import Search from './components/Search'
 import Meals from './components/Meals'
 import Modal from './components/Modal'
 import Favorites from './components/Favorites'
+
 export default function App() {
   const { showModal } = useGlobalContext()
 
@@ -773,9 +787,10 @@ export default function App() {
     </main>
   )
 }
-Modal CSS - Setup
-App.css
-
+```
+## Modal CSS - Setup
+### App.css
+```
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -796,9 +811,10 @@ App.css
   background:var(--white);
   border-radius:var(--borderRadius);
 }
-Display Meal in the Modal
-context.jsx
-
+```
+## Display Meal in the Modal
+### context.jsx
+```
 const AppProvider = ({ children }) => {
  
   const [selectedMeal, setSelectedMeal] = useState(null)
@@ -821,8 +837,9 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Meals.jsx
-
+```
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 import { BsHandThumbsUp } from 'react-icons/bs'
 const Meals = () => {
@@ -856,9 +873,10 @@ const Meals = () => {
 }
 
 export default Meals
-Display Selcted Meal and Close Modal
-context.jsx
-
+```
+## Display Selcted Meal and Close Modal
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   
   const closeModal = () => {
@@ -873,8 +891,9 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Modal.jsx
-
+```
+### /components/Modal.jsx
+```
 import { useGlobalContext } from '../context'
 
 const Modal = () => {
@@ -896,10 +915,11 @@ const Modal = () => {
 }
 
 export default Modal
+```
 ### Modal CSS - Complete
 
-App.css
-
+### App.css
+```
 .modal-img{
  height:15rem;
   border-top-left-radius:var(--borderRadius);
@@ -928,9 +948,10 @@ App.css
   background:var(--red-dark);
   color:var(--white);
 }
-Favorites - Setup
-context.jsx
-
+```
+## Favorites - Setup
+### context.jsx
+```
 const AppProvider = ({ children }) => {
   
   const [favorites, setFavorites] = useState([]);
@@ -955,8 +976,9 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
-/components/Meals.jsx
-
+```
+### /components/Meals.jsx
+```
 import { useGlobalContext } from '../context'
 import { BsHandThumbsUp } from 'react-icons/bs'
 const Meals = () => {
@@ -990,13 +1012,12 @@ const Meals = () => {
 }
 
 export default Meals
-Render Favorites
-App.jsx
-
+```
+## Render Favorites
+### App.jsx
+```
 import { useGlobalContext } from './context'
 import './App.css'
-
-
 
 import Search from './components/Search'
 import Meals from './components/Meals'
@@ -1017,10 +1038,11 @@ export default function App() {
     </main>
   )
 }
-/components/Favorites
+```
 
+### /components/Favorites
+```
 import { useGlobalContext } from '../context'
-
 
 const Favorites = () => {
   const { favorites, selectMeal, removeFromFavorites } = useGlobalContext()
@@ -1044,9 +1066,11 @@ const Favorites = () => {
 
 
 export default Favorites
-# Favorites CSS
-App.css
+```
 
+## Favorites CSS
+### App.css
+```
 /* Favorites */
 
 .favorites{
@@ -1086,9 +1110,10 @@ App.css
 .remove-btn:hover{
   color:var(--red-dark);
 }
-SelectMeal Refactor
-context.jsx
-
+```
+## SelectMeal Refactor
+### context.jsx
+```
 const selectMeal = (idMeal, favoriteMeal) => {
     let meal;
     if (favoriteMeal) {
@@ -1099,11 +1124,10 @@ const selectMeal = (idMeal, favoriteMeal) => {
     setSelectedMeal(meal);
     setShowModal(true)
   }
-  # done
-/components/Favorites.jsx
-
+```
+### /components/Favorites.jsx
+```
 import { useGlobalContext } from '../context'
-
 
 const Favorites = () => {
   const { favorites, selectMeal, removeFromFavorites } = useGlobalContext()
@@ -1124,12 +1148,13 @@ const Favorites = () => {
     </div>
   </section>
 }
+```
+### favorites will not deselected while change to surprise
 
-## favorites will not deselected while change to surprise
-export default Favorites
-Add Favorites to Local Storage
-contex.jsx
-
+- export default Favorites
+- Add Favorites to Local Storage
+### context.jsx
+```
 const getFavoritesFromLocalStorage = () => {
   let favorites = localStorage.getItem('favorites');
   if (favorites) {
@@ -1167,3 +1192,4 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   )
 }
+```
