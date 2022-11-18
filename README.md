@@ -1,10 +1,10 @@
 # **Meals Application**
 
-- Tools Using: Visual Studio Code
-- Language: React
-- Learning Time: Oct 2022
+## Tools Using: Visual Studio Code
+## Language: React
+## Learning Time: Oct 2022
  
- Functions:
+ ### Functions:
 
  - This is a website which have the main function of let user search the meal and have a random result to surprise him.
  
